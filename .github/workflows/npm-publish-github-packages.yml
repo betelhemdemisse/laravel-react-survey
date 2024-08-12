@@ -12,8 +12,8 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        working-directory: laravel/react
+        working-directory: react
         run: npm install
       - name: Run React tests
-        working-directory: laravel/react
+        working-directory: react
         run: npm test
