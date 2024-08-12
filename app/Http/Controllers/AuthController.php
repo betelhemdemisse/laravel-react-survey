@@ -68,6 +68,9 @@ class AuthController extends Controller
     }
 
     return response()->json('', 204);
-}    
+}   
+   public function unknown(){
+    
+   }  
    // Return 204 No Content status
 }
