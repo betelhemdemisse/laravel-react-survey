@@ -8,9 +8,8 @@ use Tests\TestCase;
 
 class AuthControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use RefreshDatabase;
+
     public function test_register(): void
     {
         $response = $this->postJson('/api/register', [
@@ -19,26 +18,33 @@ class AuthControllerTest extends TestCase
             'password' => 'password123@',
             'password_confirmation' => 'password123@',
         ]);
-        // In your test method
 
         $response->assertStatus(200);
         $response->assertJsonStructure([
-            'token' => 'token',
+            'token',
         ]);
         $this->assertDatabaseHas('users', [
             'email' => 'test512@example.com',
         ]);
     }
-    public function test_login(): void 
+
+    public function test_login(): void
     {
-        $user = \App\Models\User::factory()->create([
-            'password' => bcrypt('password123@'),
+        // Create a user with plain text password
+        $user = User::factory()->create([
+            'password' => bcrypt('password123@'), // Use bcrypt here
         ]);
+
+        // Log in with plain text password
         $response = $this->postJson('/api/login', [
-            'email' => 'test264@example.com',
-            'password' => bcrypt('password123@'),
+            'email' => $user->email, // Use the email of the created user
+            'password' => 'password123@', // Use plain text password here
         ]);
+
         $response->assertStatus(200);
-      
+        // Add further assertions if necessary, e.g. checking for a token
+        $response->assertJsonStructure([
+            'token',
+        ]);
     }
 }
