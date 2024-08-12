@@ -3,7 +3,7 @@ import axios from "axios";
 
 const axiosClient=axios.create({
     // baseURL:"http://127.0.0.1:8000/api/"
-     baseURL:`${import.meta.env.VITE_API_BASE_URL}/api`
+    baseURL: `${process.env.VITE_API_BASE_URL}/api`,
     //  to prevent accidentally leaking env variables to the clients,only variable prefixed with_VITE are exposed to your vite-processed code
 });
 

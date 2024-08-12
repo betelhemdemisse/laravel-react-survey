@@ -31,9 +31,9 @@ class AuthController extends Controller
    public function register(RegisterRequest $request)
    {
     
-     return response()->json(['message' => 'API request reached the controller method']);
+    //  return response()->json(['message' => 'API request reached the controller method']);
    
-    // dd($request);
+    //  dd($request);
     // Log::info('Register request received', $request->all());
     $data = $request->validated();
     $user=User::create([

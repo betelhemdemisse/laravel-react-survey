@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../contexts/contextProvider";
 import axiosClient from '../axiosClient';
@@ -23,6 +24,7 @@ console.log(payload)
       .then(({ data }) => {
           setUser(data.user);
           setToken(data.token);
+          
       })
       .catch(err => {
         // debugger;
@@ -36,6 +38,7 @@ console.log(payload)
           }
       });
 };
+console.log("Errors:", errors);
 
    
   return (
