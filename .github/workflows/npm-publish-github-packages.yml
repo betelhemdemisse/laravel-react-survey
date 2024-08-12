@@ -15,5 +15,5 @@ jobs:
         working-directory: laravel/react
         run: npm install
       - name: Run React tests
-        working-directory: laravel/react
+        working-directory: laravel/AVS_React
         run: npm test
