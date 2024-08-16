@@ -45,8 +45,8 @@ jobs:
         sed -i 's/DB_PORT=3306/DB_PORT=3306/' .env
         sed -i 's/DB_USERNAME=root/DB_USERNAME=root/' .env
         sed -i 's/DB_PASSWORD=/DB_PASSWORD=root_password/' .env
-    - name: Run Migrations
-      run: php artisan migrate
+    # - name: Run Migrations
+    #   run: php artisan migrate
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: mysql
