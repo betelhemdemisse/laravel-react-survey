@@ -11,6 +11,8 @@ class AuthControllerTest extends TestCase
     /**
      * A basic feature test example.
      */
+    use RefreshDatabase;
+
     public function test_register(): void
     {
         $response = $this->postJson('/api/register', [
